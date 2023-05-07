@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.urotaxi.form.ContactUsForm;
 import com.urotaxi.form.PassangerDataForm;
+import com.urotaxi.form.RegisterUserForm;
 import com.urotaxi.form.RideForm;
 import com.urotaxi.repositories.SaveDetailsRepository;
 import com.urotaxi.service.ContactUsService;
@@ -48,6 +49,16 @@ public class HomeController {
 		    System.out.println(passangerDataForm);
 		passanger_no=passangerService.savePassanger(passangerDataForm);
 		model.addAttribute("passanger_no",passanger_no);
+		
+		return "contact";
+	}
+	
+	@PostMapping("/saveRegister")
+	public String SaveRegisteration(@ModelAttribute("registerUserForm") RegisterUserForm registerUserForm,Model model) {
+		int user_id=0;
+		System.out.println(registerUserForm);
+		user_id = passangerService.saveUser(registerUserForm);
+		model.addAttribute("user", user_id);
 		
 		return "contact";
 	}

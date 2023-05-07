@@ -26,7 +26,8 @@ public class UrotaxiApplication extends SpringBootServletInitializer implements 
 		registry.addViewController("/service.html").setViewName("service");
 		registry.addViewController("/news.html").setViewName("news");
 		registry.addViewController("/about.html").setViewName("about");
-		
+		registry.addViewController("/login.html").setViewName("login");
+		registry.addViewController("/registeration.html").setViewName("registeration");
 	}
 
 }
